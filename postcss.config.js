@@ -1,6 +1,9 @@
 const config = {
   plugins: [
     require('./postcss-tasks/postcss-module-import'),
+    require('postcss-css-variables')({
+      variables: require('./src/assets/js/lib/variables')
+    }),
     require('postcss-inline-svg'),
     require("postcss-color-function"),
     require('autoprefixer')({
