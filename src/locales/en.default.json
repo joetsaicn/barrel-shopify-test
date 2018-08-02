@@ -162,12 +162,15 @@
       "email": "Email",
       "password": "Password",
       "forgot_password": "Forgot your password?",
+      "forgot_password_subtitle": "Enter your email and we will send you a password reset link.",
       "sign_in": "Sign In",
       "not_registered": "Don’t have an account?",
       "create_account": "Register now.",
-      "cancel": "Return to Home",
+      "cancel": "Cancel",
       "guest_title": "Continue as a guest",
-      "guest_continue": "Continue"
+      "guest_continue": "Continue",
+      "reset_success": "Success! Check your email for a link to reset your password.",
+      "reset_password": "Reset password"
     },
     "orders": {
       "title": "Your Order History",
@@ -221,8 +224,10 @@
       "password": "Password",
       "submit": "Create Account",
       "already_registered": "Already have an account?",
+      "sent_email": "We have sent an email to {{email}}. Please click the link in your email to verify your account.",
       "sign_in": "Sign in here.",
-      "cancel": "Return to Home"
+      "cancel": "Return to Home",
+      "subscribe": "Subscribe to our newsletter"
     }
   },
   "homepage": {
