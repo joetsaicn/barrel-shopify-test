@@ -26,6 +26,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint-config-standard-preact": "^1.1.6",
+    "postcss-css-variables": "^0.9.0",
     "postcss-fontpath": "^1.0.0"
   },
   "dependencies": {
