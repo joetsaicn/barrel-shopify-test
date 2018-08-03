@@ -1,8 +1,4 @@
-import variables from './variables'
-
-export const isBreakpoint = (breakpoint) => window.innerWidth < variables[`breakpoint__${breakpoint}`]
-
-export const isMobile = () => isBreakpoint('s')
+export const isMobile = () => window.innerWidth < 768
 
 export const isTouch = () => 'ontouchstart' in document.documentElement
 
