@@ -17,25 +17,25 @@
 {% comment %}
   Set the default grid_item_width if no variable is set
 {% endcomment %}
-{% unless grid_item_width %}
-  {% assign grid_item_width = 'large--one-third medium--one-half' %}
-{% endunless %}
+{%- unless grid_item_width -%}
+  {%- assign grid_item_width = 'large--one-third medium--one-half' -%}
+{%- endunless -%}
 
 {% comment %}
   Check if the product is on sale and set a variable to be used below.
 {% endcomment %}
-{% assign on_sale = false %}
-{% if product.compare_at_price > product.price %}
-  {% assign on_sale = true %}
-{% endif %}
+{%- assign on_sale = false -%}
+{%- if product.compare_at_price > product.price -%}
+  {%- assign on_sale = true -%}
+{%- endif -%}
 
 {% comment %}
   Check if the product is sold out and set a variable to be used below.
 {% endcomment %}
-{% assign sold_out = true %}
-{% if product.available %}
-  {% assign sold_out = false %}
-{% endif %}
+{%- assign sold_out = true -%}
+{%- if product.available -%}
+  {%- assign sold_out = false -%}
+{%- endif -%}
 
-{% assign class = grid_item_width | prepend: 'grid__item ' %}
-{% include 'product-card', class: class %}
+{%- assign class = grid_item_width | prepend: 'grid__item ' -%}
+{%- include 'product-card', class: class -%}
