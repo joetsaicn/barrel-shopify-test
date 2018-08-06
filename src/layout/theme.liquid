@@ -17,18 +17,13 @@
 
   {%- include 'social-meta' -%}
 
-  {{- content_for_header -}}
+  {{ content_for_header }}
 
   {%- if settings.is_dev_mode -%}
     {{- '/dev/main.js' | script_tag -}}
   {%- else -%}
     {{- 'main.min.css' | asset_url | stylesheet_tag -}}
   {%- endif -%}
-
-  <script>
-    /** Used in the account pages! */
-    window.barrel = window.barrel || {}
-  </script>
 
   <title> {{- page_title -}}{%- if current_tags -%}{%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{- 'general.meta.tags' | t: tags: meta_tags -}}{%- endif -%}{%- if current_page != 1 -%} &ndash; {{- 'general.meta.page' | t: page: current_page -}}{%- endif -%}{%- unless page_title contains shop.name -%} &ndash; {{- shop.name -}}{%- endunless -%} </title>
 </head>
@@ -38,7 +33,7 @@
   {%- include 'header' -%}
 
   <main id="page" class="relative z0" role="main">
-    {{- content_for_layout -}}
+    {{ content_for_layout }}
   </main>
 
   {%- include 'mini-cart' -%}

@@ -56,8 +56,6 @@
     "webpack": "^4.16.4"
   },
   "dependencies": {
-    "accornion": "^0.1.0",
-    "classnames": "^2.2.5",
     "conform.js": "^0.3.3",
     "dom-event": "^1.0.0",
     "dom-select": "^1.1.1",
@@ -66,17 +64,12 @@
     "layzr.js": "^2.2.2",
     "micro-jsonp": "^1.0.1",
     "nanoajax": "^0.4.3",
-    "preact": "^8.2.6",
-    "preact-compat": "^3.17.0",
-    "preact-redux": "^2.0.3",
     "promobar": "0.0.6",
     "pubsub-js": "^1.5.3",
-    "query-string": "^5.0.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
+    "query-string": "^5.1.1",
     "select-dom": "^4.1.1",
-    "shopify-shipping-calculator": "^0.1.0",
     "svbstrate": "^2.0.2",
-    "up-down": "0.0.1"
+    "up-down": "0.0.1",
+    "vue": "^2.5.17"
   }
 }

@@ -1,33 +1,35 @@
-{% comment %}
-  Reusable submit button snippet.
+{%- assign value = value | default: 'Submit' -%}
+{%- assign type = type | default: 'submit' -%}
+{%- assign class = class | default: '' -%}
+{%- assign isVue = isVue | default: true -%}
+{%- assign binding = binding | default: false -%}
+{%- assign disabled = disabled | default: false -%}
+{%- assign loading = loading | default: false -%}
+{%- assign loader = loader | default: false -%}
+{%- assign attr = attr | default: false -%}
+{%- assign condition = condition | default: false -%}
+{%- unless loader -%}
+  {%- capture loader -%}{{ 'button-loading.gif' | asset_img_url: 'master' }}{%- endcapture -%}
+{%- endunless %}
 
-  Defaults:
-  value default 'Submit'
-  class default blank
-  type default input
-  disabled default false
+<button
+  type="{{type}}"
+  class="button pointer {{class}}"
+  {% if isVue %}is="submit-button"{% endif %}
+  {% if isVue and binding %}v-on:click="{{binding}}"{% endif %}
+  {% if isVue and disabled %}:disabled="{{disabled}}"{% endif %}
+  {% if isVue and loading %}:loading="{{loading}}"{% endif %}
+  {% if isVue and loader %}loader="{{loader}}"{% endif %}
+  {% if attr %}{{attr}}{% endif %}
+  {% if value %}value="{{value}}"{% endif %}
+  {% if condition %}v-if="{{condition}}"{% endif %}>{{value}}</button>
 
-{% endcomment %}
-
-{% comment %} Set default values for submit button {% endcomment %}
-{%- assign value = value | Default: 'Submit' -%}
-{%- assign class = class | Default: blank -%}
-{%- assign type = type | Default: 'input' -%}
-{%- assign disabled = disabled | Default: false -%}
-
-{%- capture classes -%}
-  submit-btn {%- if class != blank -%} {{- class -}} {%- endif -%}
-{%- endcapture -%}
-
-{%- if type == 'button' -%}
-  <button type="submit" class="{{- classes -}}" value="{{- value -}}"{%- if disabled -%} disabled{%- endif -%}>{{- value -}}</button>
-{%- else -%}
-  <input type="submit" class="{{- classes -}}" value="{{- value -}}" {%- if disabled -%} disabled{%- endif -%}>
-{%- endif -%}
-
-{% comment %} Set default values to false {% endcomment %}
-{%- assign value = false -%}
-{%- assign class = false -%}
-{%- assign classes = false -%}
-{%- assign type = false -%}
-{%- assign disabled = false -%}
+{%- assign value = nil -%}
+{%- assign type = nil -%}
+{%- assign class = nil -%}
+{%- assign isVue = nil -%}
+{%- assign binding = nil -%}
+{%- assign disabled = nil -%}
+{%- assign loading = nil -%}
+{%- assign loader = nil -%}
+{%- assign attr = nil -%}

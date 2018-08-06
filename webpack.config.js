@@ -39,9 +39,9 @@ module.exports = {
     alias: {
       'lib': path.resolve(__dirname, 'src/assets/js/lib'),
       'modules': path.resolve(__dirname, 'src/modules'),
+      'mixins': path.resolve(__dirname, 'src/assets/js/mixins'),
       'root': path.resolve(__dirname, 'src'),
-      'react': 'preact-compat',
-      'react-dom': 'preact-compat'
+      'vue': process.env.ENV === 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js'
     },
   },
   plugins: [],

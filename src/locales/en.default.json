@@ -163,7 +163,7 @@
       "password": "Password",
       "forgot_password": "Forgot your password?",
       "forgot_password_subtitle": "Enter your email and we will send you a password reset link.",
-      "sign_in": "Sign In",
+      "submit": "Sign In",
       "not_registered": "Don’t have an account?",
       "create_account": "Register now.",
       "cancel": "Cancel",
@@ -226,7 +226,6 @@
       "already_registered": "Already have an account?",
       "sent_email": "We have sent an email to {{email}}. Please click the link in your email to verify your account.",
       "sign_in": "Sign in here.",
-      "cancel": "Return to Home",
       "subscribe": "Subscribe to our newsletter"
     }
   },
