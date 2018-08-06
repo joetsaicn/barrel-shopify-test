@@ -33,6 +33,7 @@
     "accornion": "^0.1.0",
     "classnames": "^2.2.5",
     "conform.js": "^0.3.3",
+    "cookies-js": "^1.2.3",
     "dom-event": "^1.0.0",
     "dom-select": "^1.1.1",
     "feature.js": "^1.0.0",

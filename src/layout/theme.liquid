@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html{% unless template contains 'password' or template contains 'access-denied' or cart.attributes.age_gate == '1' %} class="js-age-gate"{% endunless %}>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
 
   {%- include 'social-meta' -%}
 
-  {{- content_for_header -}}
+  {{ content_for_header }}
 
   {%- if settings.is_dev_mode -%}
     {{- '/dev/main.js' | script_tag -}}
@@ -37,8 +37,10 @@
   {%- include 'promobar' -%}
   {%- include 'header' -%}
 
+  {%- include 'age-gate' -%}
+
   <main id="page" class="relative z0" role="main">
-    {{- content_for_layout -}}
+    {{ content_for_layout }}
   </main>
 
   {%- include 'mini-cart' -%}

@@ -23,6 +23,21 @@
       "title": "Search for products on our site",
       "placeholder": "Search our store",
       "submit": "Search"
+    },
+    "age_gate": {
+      "question": "Are you of legal drinking age?",
+      "yes": "Yes, enter site",
+      "no": "No",
+      "denied": "Access Denied",
+      "denied_message": "Sorry, you must be of legal drinking age to enter this site."
+    },
+    "terms_conditions": {
+      "title": "Terms & Conditions",
+      "cookies": "You must have cookies enabled to use this website.",
+      "consent_html": "By entering this site you agree to our {{ terms_conditions }} and {{ privacy }}."
+    },
+    "privacy": {
+      "title": "Privacy"
     }
   },
   "blogs": {
