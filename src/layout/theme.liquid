@@ -4,7 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="canonical" href="{{- canonical_url -}}">
+
+  {%- include 'alternate-urls' -%}
+
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+  {%- section 'no-index' -%}
 
   {% comment %} <link rel="apple-touch-icon" sizes="180x180" href="{{'apple-touch-icon.png' | asset_url -}}"> {% endcomment %}
   {% comment %} <link rel="icon" type="image/png" href="{{'favicon-32x32.png' | asset_url -}}" sizes="32x32"> {% endcomment %}
