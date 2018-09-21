@@ -154,6 +154,7 @@
       "add": "Add Address",
       "update": "Update Address",
       "cancel": "Cancel",
+      "remove": "Remove",
       "edit": "Edit",
       "delete": "Delete"
     },

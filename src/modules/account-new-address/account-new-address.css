@@ -1,22 +1,3 @@
-/**
- * Address form
- */
-.address__form {}
-.address__form__group {
-  width: 100%;
-  @media (--s){
-    flex-wrap: nowrap;
-  }
-}
-.address__form__field {
-  width: 100%;
-  @media (--s){
-    width: 50%;
-    &:first-child {
-      margin-right: 1em;
-    }
-    &:last-child {
-      margin-left: 1em;
-    }
-  }
+.address-form__group{
+  display: block;
 }
