@@ -43,6 +43,7 @@
     "postcss-automath": "^1.0.1",
     "postcss-color-function": "^4.0.1",
     "postcss-css-variables": "^0.9.0",
+    "postcss-each": "^0.10.0",
     "postcss-extend": "^1.0.5",
     "postcss-fontpath": "^1.0.0",
     "postcss-hexrgba": "^1.0.1",
@@ -70,6 +71,8 @@
     "select-dom": "^4.1.1",
     "svbstrate": "^2.0.2",
     "up-down": "0.0.1",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-quick-search": "0.0.2",
+    "vue-scrollto": "^2.13.0"
   }
 }
