@@ -43,3 +43,18 @@ export const toggle = (item, selector) => {
     item.classList.toggle(selector)
   }
 }
+
+export const deepClone = obj => {
+  return JSON.parse(JSON.stringify(obj))
+}
+
+export const supportsObjectFit = () => {
+  let objectFit = false
+  for (let prop in document.documentElement.style) {
+    if (/object(?:-f|F)it$/.test(prop)) {
+      objectFit = true
+      break
+    }
+  }
+  return objectFit
+}
