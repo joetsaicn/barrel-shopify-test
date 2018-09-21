@@ -11,9 +11,14 @@ class Init {
   init () {
     this.modules = this.fetchModules()
     for (let i = 0; i < this.modules.length; i++) {
-      this.modules[i].fn &&
-      this.modules[i].fn.init &&
-      this.modules[i].fn.init(this.modules[i].el)
+      if (
+        this.modules[i].fn &&
+        this.modules[i].fn.init
+      ) {
+        this.modules[i].fn.init(this.modules[i].el)
+      } else if (typeof this.modules[i].fn.bind !== 'undefined') {
+        this.modules[i].fn(this.modules[i].el)
+      }
     }
   }
 
