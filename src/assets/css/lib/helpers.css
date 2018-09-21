@@ -1,0 +1,121 @@
+/* Ratio */
+.ratio {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Icons / Logos */
+.icon,
+.logo {
+  position: relative;
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Background Size */
+.bg-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-contain {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Borders */
+.border-bottom {
+  border-bottom: 1px solid var(--grey1);
+}
+
+/* Width */
+.w100 {
+  width: 100%;
+}
+
+/* Positioning */
+.fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+.smooth-scroll{
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+/* Section Spacing */
+.section {
+  padding: 40px 0;
+
+  @media (--xs) {
+    padding: 60px 0;
+  }
+
+  @media (--m) {
+    padding: 80px 0;
+  }
+
+  & + .section {
+    padding-top: 0;
+  }
+}
+
+/* Opacities */
+.o1 {
+  opacity: 0.1;
+}
+.o2 {
+  opacity: 0.2;
+}
+.o3 {
+  opacity: 0.3;
+}
+.o4 {
+  opacity: 0.4;
+}
+.o5 {
+  opacity: 0.5;
+}
+.o6 {
+  opacity: 0.6;
+}
+.o7 {
+  opacity: 0.7;
+}
+.o8 {
+  opacity: 0.8;
+}
+.o9 {
+  opacity: 0.9;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+/* Vue.js */
+[v-cloak] {
+  display: none;
+}
+
+.hidden{
+  visibility: hidden;
+}
