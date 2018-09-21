@@ -9,8 +9,8 @@
 {%- assign error = error | default: '' -%}
 {%- assign style = style | default: 'default' -%}
 {%- assign required = required | default: false -%}
-{%- assign initial_value_getter = initial_value_getter | default: false -%}
-{%- assign validate_method = validate_method | default: false -%}
+{%- assign :value = :value | default: false -%}
+{%- assign :validate = :validate | default: false -%}
 {%- assign @change = @change | default: false -%}
 
 <input
@@ -25,8 +25,8 @@
   autocorrect="{{autocorrect}}"
   autocapitalize="{{autocapitalize}}"
   {% if required %}required="true"{% endif %}
-  {% if validate_method %}:validate-method="{{validate_method}}"{% endif %}
-  {% if initial_value_getter %}:initial-value-getter="{{initial_value_getter}}"{% endif %}
+  {% if :validate %}:validate="{{:validate}}"{% endif %}
+  {% if :value %}:get-value="{{:value}}"{% endif %}
   error="{{error}}" />
 
 {%- assign label = nil -%}
@@ -40,6 +40,6 @@
 {%- assign error = nil -%}
 {%- assign style = nil -%}
 {%- assign required = nil -%}
-{%- assign initial_value_getter = nil -%}
-{%- assign validate_method = nil -%}
+{%- assign :value = nil -%}
+{%- assign :validate = nil -%}
 {%- assign @change = nil -%}

@@ -6,7 +6,7 @@ Vue.component('text-input', {
     'label',
     'type',
     'modifier',
-    'initialValueGetter',
+    'getValue',
     'autocorrect',
     'autocapitalize',
     'placeholder',
@@ -21,8 +21,8 @@ Vue.component('text-input', {
       showErrorMessage: false
     }
 
-    if (this.initialValueGetter && this.initialValueGetter.bind !== 'undefined') {
-      data['inputValue'] = this.initialValueGetter(this.name)
+    if (this.getValue && this.getValue.bind !== 'undefined') {
+      data['inputValue'] = this.getValue(this.name)
     } else {
       data['inputValue'] = ''
     }
