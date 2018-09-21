@@ -1,0 +1,43 @@
+{% assign button = button | default: 'button' %}
+{% assign value = value | default: 'Click Here' %}
+{% assign type = type | default: 'button' %}
+{% assign name = name | default: blank %}
+{% assign id = id | default: blank %}
+{% assign class = class | default: blank %}
+{% assign attr = attr | default: blank %}
+{% assign href = href | default: '/' %}
+{% assign hover = hover | default: true %}
+{% assign name = name | default: blank %}
+
+{% capture css %}inline-block button {{ class | strip }}{% endcapture %}
+
+{% case button %}
+  {% when 'link' %}
+    <a
+      class="{{ css | strip }}"
+      {% if href != blank %}href="{{ href }}"{% endif %}
+      {% if id != blank %}id="{{ id | strip }}"{% endif %}
+      {% if attr != blank %}{{ attr }}{% endif %}>
+      <span class="button__el">{{ value }}</span>
+    </a>
+  {% else %}
+    <button
+      class="{{ css | strip }}"
+      type="{{ type }}"
+      {% if id != blank %}id="{{ id | strip }}"{% endif %}
+      {% if name != blank %}name="{{ name | strip }}"{% endif %}
+      {% if attr != blank %}{{ attr }}{% endif %}>
+      <span class="button__el">{{ value }}</span>
+    </button>
+{% endcase %}
+
+{% assign button = nil %}
+{% assign value = nil %}
+{% assign type = nil %}
+{% assign name = nil %}
+{% assign id = nil %}
+{% assign class = nil %}
+{% assign css = nil %}
+{% assign attr = nil %}
+{% assign href = nil %}
+{% assign name = nil %}
