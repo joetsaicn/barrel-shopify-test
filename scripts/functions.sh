@@ -53,9 +53,18 @@ function get_all_themes_from_json {
 # Downloads themekit
 function download_themekit {
   if ! [ -x "$(command -v theme)" ]; then
-    echo -e "\nDownloading Shopify Themekit..\n"
-    npm install @shopify/themekit --quiet -g
-  fi;
+    if [ "$GITLAB_CI" ]; then
+      npm install @shopify/themekit --quiet
+      cp ./node_modules/@shopify/themekit/bin/theme \
+         ./node_modules/.bin/theme
+
+      echo -e "\nTemporarily setting the path..\n"
+      export PATH="$PATH:$(pwd)/node_modules/.bin"
+    else
+      brew tap shopify/shopify
+      brew install themekit
+    fi
+  fi
 }
 
 # Downloads the published theme
