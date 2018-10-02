@@ -188,7 +188,8 @@ function get_theme_id {
 # Upload the temp directory to the theme
 function upload_theme {
   echo -e "\nUploading the $2 directory to $1..\n"
-  theme upload \
+  theme deploy \
+    --nodelete \
     --password="$development_password" \
     --store="$development_store" \
     --themeid="$1" \

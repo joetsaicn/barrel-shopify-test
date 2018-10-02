@@ -53,7 +53,7 @@ download_themekit
 
 # Create an empty yaml file if doesn't exit
 if ! [ -f "$CONFIG" ]; then
-  touch "$CONFIG"
+  cp "$(pwd)/config-example.yml" "$CONFIG"
 fi
 
 # Parse the config.yml file
@@ -113,7 +113,7 @@ ALL_THEMES_STRING=$(get_all_themes_from_json "$ALL_THEMES_JSON")
 # Turn into an array
 read -r -a THEMES <<< "$ALL_THEMES_STRING"
 
-if ! [[ "${#THEMES[@]}" < 20 ]]; then
+if ! [[ "${#THEMES[@]}" < 20 ]] && ! [ "$EXISTING_THEME" ]; then
   echo -e "\nWARNING: Store is at it's 20 theme limit\n"
   exit 1;
 fi
