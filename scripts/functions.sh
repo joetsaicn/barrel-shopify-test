@@ -54,8 +54,7 @@ function get_all_themes_from_json {
 function download_themekit {
   if ! [ -x "$(command -v theme)" ]; then
     echo -e "\nDownloading Shopify Themekit..\n"
-    brew tap shopify/shopify
-    brew install themekit
+    npm install @shopify/themekit --quiet -g
   fi;
 }
 
