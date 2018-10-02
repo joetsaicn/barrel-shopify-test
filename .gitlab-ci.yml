@@ -1,31 +1,25 @@
 stages:
-  - deploy
-
-deploy:staging:
-  stage: deploy
-  image: node:6
-  variables:
-    THEME_ID: ""
-  before_script:
-    - git log --oneline -1 > commit.txt
-  script:
-    - bash ./ci/build -e staging
-  environment:
-    name: test
-  when: manual
+  - themes
+  - deployment
+image: barrelny/pantheon-ci:0.0.9
+manage_staging:
   only:
-    - barrel-dev
-deploy:live:
-  stage: deploy
-  image: node:6
-  variables:
-    THEME_ID: ""
-  before_script:
-    - git log --oneline -1 > commit.txt
+    - ^(feature\/.*)|(develop)$
+  stage: themes
   script:
-    - bash ./ci/build -e production
-  environment:
-    name: live
-  when: manual
+    - chmod +x ./scripts/themes.sh
+    - ./scripts/themes.sh --staging
+create_backup:
   only:
     - master
+  stage: themes
+  script:
+    - chmod +x ./scripts/themes.sh
+    - ./themes.sh
+deploy:
+  only:
+    - ^(feature\/.*)|(develop|(master)$
+  stage: deployment
+  script:
+    - chmod +x ./scripts/deployments.sh
+    - ./scripts/deployments.sh
