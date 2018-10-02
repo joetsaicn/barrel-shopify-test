@@ -3,22 +3,18 @@ stages:
   - deployment
 image: barrelny/pantheon-ci:0.0.9
 manage_staging:
-  only:
-    - ^(feature\/.*)|(develop)$
   stage: themes
   script:
     - chmod +x ./scripts/themes.sh
     - ./scripts/themes.sh --staging
-create_backup:
-  only:
-    - master
-  stage: themes
-  script:
-    - chmod +x ./scripts/themes.sh
-    - ./themes.sh
+# create_backup:
+#   only:
+#     - master
+#   stage: themes
+#   script:
+#     - chmod +x ./scripts/themes.sh
+#     - ./themes.sh
 deploy:
-  only:
-    - ^(feature\/.*)|(develop|(master)$
   stage: deployment
   script:
     - chmod +x ./scripts/deployments.sh
