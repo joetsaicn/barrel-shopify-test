@@ -49,7 +49,9 @@ esac
 done
 
 # Print theme name
-echo -e "\nTheme name: $TEMP_THEME_NAME..\n"
+echo -e "\nTheme name: $CURRENT_BRANCH..\n"
+
+exit 1
 
 # Makes sure that themekit is installed
 echo -e "\nDownloading themekit..\n"
