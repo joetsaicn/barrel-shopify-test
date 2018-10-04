@@ -38,7 +38,7 @@ if ! [ -f "$CONFIG" ]; then
 fi
 
 # Parse the config.yml file
-if ! [ "$GITLAB_CI" ]; then
+if ! [ "$GITLAB_CI" = true ]; then
   eval $(parse_yaml "$CONFIG")
 fi
 

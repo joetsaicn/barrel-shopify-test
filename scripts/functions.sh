@@ -2,8 +2,8 @@
 
 # Get the current Git branch
 function get_current_branch {
-  if [ "$GITLAB_CI" ]; then
-    echo "$CI_COMMIT_REF_NAME"
+  if [ "$GITLAB_CI" = true ]; then
+    echo $(echo "$CI_COMMIT_REF_NAME" | cut -d '/' -f2)
   else
     echo "$(git rev-parse --abbrev-ref HEAD | cut -d '/' -f2)"
   fi

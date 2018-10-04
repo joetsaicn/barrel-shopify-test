@@ -18,13 +18,6 @@ development_api_key="$SHOPIFY_API_KEY"
 development_password="$SHOPIFY_PASSWORD"
 development_store="$SHOPIFY_STORE"
 
-echo "$CI_COMMIT_REF_NAME"
-echo "$GITLAB_USER_LOGIN"
-echo "$GITLAB_CI"
-echo "$CI_COMMIT_REF_SLUG"
-
-exit 0;
-
 for i in "$@"; do
 case $i in
     --config=*)
@@ -55,6 +48,9 @@ case $i in
 esac
 done
 
+# Print theme name
+echo -e "\nTheme name: $TEMP_THEME_NAME..\n"
+
 # Makes sure that themekit is installed
 echo -e "\nDownloading themekit..\n"
 download_themekit
@@ -65,7 +61,7 @@ if ! [ -f "$CONFIG" ]; then
 fi
 
 # Parse the config.yml file
-if ! [ "$GITLAB_CI" ]; then
+if ! [ "$GITLAB_CI" = true ]; then
   eval $(parse_yaml "$CONFIG")
 fi
 
