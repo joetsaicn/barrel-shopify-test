@@ -18,6 +18,13 @@ development_api_key="$SHOPIFY_API_KEY"
 development_password="$SHOPIFY_PASSWORD"
 development_store="$SHOPIFY_STORE"
 
+echo "$CI_COMMIT_REF_NAME"
+echo "$GITLAB_USER_LOGIN"
+echo "$GITLAB_CI"
+echo "$CI_COMMIT_REF_SLUG"
+
+exit 0;
+
 for i in "$@"; do
 case $i in
     --config=*)
