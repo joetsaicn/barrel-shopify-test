@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Get the current Git branch
+function get_current_branch {
+  if [ "$GITLAB_CI" ]; then
+    echo "$CI_COMMIT_REF_NAME"
+  else
+    echo "$(git rev-parse --abbrev-ref HEAD | cut -d '/' -f2)"
+  fi
+}
+
 # Parses all remote branches into an array
 function get_remote_branches {
   IFS=' '

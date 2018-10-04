@@ -10,7 +10,7 @@ TEMP_THEME_NAME="BACKUP - LIVE - $(date +%Y/%m/%d,%H:%M:%S)"
 CLEANSE=false
 BACKUP_THEMES_KEEP=3
 CREATE_STAGING_THEME=false
-CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD | cut -d '/' -f2)"
+CURRENT_BRANCH="$(get_current_branch)"
 IFS=','
 
 # These variable will come out of config.yml parsing
@@ -49,6 +49,7 @@ esac
 done
 
 # Makes sure that themekit is installed
+echo -e "\nDownloading themekit..\n"
 download_themekit
 
 # Create an empty yaml file if doesn't exit

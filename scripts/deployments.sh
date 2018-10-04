@@ -6,7 +6,7 @@ source $(dirname $0)/functions.sh
 # Setup variables
 CONFIG='config.yml'
 LIVE_THEME_NAME="LIVE - v$(npm version | grep -o  '[0-9.]\+' | head -n1) $(date +%Y/%m/%d,%H:%M:%S)"
-CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD | cut -d '/' -f2)"
+CURRENT_BRANCH="$(get_current_brach)"
 IFS=','
 
 # These variable will come out of config.yml parsing
@@ -15,12 +15,26 @@ development_password="$SHOPIFY_PASSWORD"
 development_store="$SHOPIFY_STORE"
 production_theme_id="$SHOPIFY_PRODUCTION_THEME"
 
+echo "Checking to see if NPM is available.."
+if [ ! -x "$(command -v npm)" ]; then
+  echo "npm must be available"
+  exit 1;
+fi
+
+npm set progress=false
+
+echo -e "\nInstalling node modules..\n"
+if [ ! -d "node_modules" ]; then
+  npm i --quiet
+fi
+
 # Makes sure that themekit is installed
+echo -e "\nDownloading themekit..\n"
 download_themekit
 
 # Create an empty yaml file if doesn't exit
 if ! [ -f "$CONFIG" ]; then
-  touch "$CONFIG"
+  cp "$(pwd)/config-example.yml" "$CONFIG"
 fi
 
 # Parse the config.yml file
@@ -47,19 +61,8 @@ else
   THEME_TO_DEPLOY_TO=$(get_existing_theme "$ALL_THEMES_JSON")
 fi
 
-if [ "$THEME_TO_DEPLOY_TO" ]
-
-echo "Checking to see if NPM is available.."
-if [ ! -x "$(command -v npm)" ]; then
-  echo "npm must be available"
-  exit 1;
-fi
-
-npm set progress=false
-
-echo "Installing node modules.."
-if [ ! -d "node_modules" ]; then
-  npm i --quiet
+if ! [ "$THEME_TO_DEPLOY_TO" ]; then
+  echo -e "\nNo theme found!!"
 fi
 
 # Build current theme
