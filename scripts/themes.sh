@@ -6,7 +6,7 @@ source $(dirname $0)/functions.sh
 # Setup variables
 CONFIG='config.yml'
 TEMP_DIR='temp'
-TEMP_THEME_NAME="BACKUP - LIVE - $(date +%Y/%m/%d,%H:%M:%S)"
+THEME_NAME="BACKUP - LIVE - $(date +%Y/%m/%d,%H:%M:%S)"
 CLEANSE=false
 BACKUP_THEMES_KEEP=3
 CREATE_STAGING_THEME=false
@@ -29,7 +29,7 @@ case $i in
     shift # past argument=value
     ;;
     --temp-theme=*)
-    TEMP_THEME_NAME="${i#*=}"
+    THEME_NAME="${i#*=}"
     shift # past argument=value
     ;;
     --cleanse)
@@ -38,7 +38,7 @@ case $i in
     ;;
     --stage|--staging)
     CREATE_STAGING_THEME=true
-    TEMP_THEME_NAME="STAGE - $(git rev-parse --abbrev-ref HEAD | cut -d "/" -f2)"
+    THEME_NAME="STAGE - $CURRENT_BRANCH"
     shift # past argument=value
     ;;
     *)
@@ -49,9 +49,7 @@ esac
 done
 
 # Print theme name
-echo -e "\nTheme name: $CURRENT_BRANCH..\n"
-
-exit 1
+echo -e "\nTheme name: $THEME_NAME..\n"
 
 # Makes sure that themekit is installed
 echo -e "\nDownloading themekit..\n"
@@ -126,14 +124,14 @@ fi
 
 if [ "$CREATE_STAGING_THEME" = false ] || ! [ "$EXISTING_THEME" ]; then
   # Create new empty theme
-  echo -e "\nCreating new empty theme: $TEMP_THEME_NAME..\n"
+  echo -e "\nCreating new empty theme: $THEME_NAME..\n"
   NEW_THEME_JSON="$(
     request \
       "$development_api_key" \
       "$development_password" \
       "$development_store/admin/themes.json" \
       "POST" \
-      "{\"theme\": {\"name\": \"$TEMP_THEME_NAME\"} }"
+      "{\"theme\": {\"name\": \"$THEME_NAME\"} }"
   )"
   NEW_THEME_ID=$(get_theme_id "$NEW_THEME_JSON")
   upload_theme "$NEW_THEME_ID" "$TEMP_DIR"
