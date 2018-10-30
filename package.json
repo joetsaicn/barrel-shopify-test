@@ -8,7 +8,8 @@
     "build": "brrl -b -e production",
     "development": "brrl -d -e development",
     "staging": "brrl -d -e staging",
-    "production": "brrl -d -e production"
+    "production": "brrl -d -e production",
+    "module:create": "sh private/scripts/create_module.sh"
   },
   "repository": {
     "type": "git",
