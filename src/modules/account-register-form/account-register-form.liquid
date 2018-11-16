@@ -1,0 +1,69 @@
+<div is="account-register-form" inline-template>
+  <div @submit="validate" class="container container--xs">
+    {%- assign title = 'customer.register.title' | t -%}
+    {% include 'page-title', title: title %}
+    {%- assign title = nil -%}
+
+    {% form 'create_customer', class: 'mha' %}
+
+      {% include 'form-errors', errors: form.errors %}
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.register.first_name' | t -%}
+        {% include 'text-input' with
+          name: 'customer[first_name]',
+          placeholder: placeholder,
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.register.last_name' | t -%}
+        {% include 'text-input' with
+          name: 'customer[last_name]',
+          placeholder: 'Last Name',
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.register.email' | t -%}
+        {% include 'text-input' with
+          name: 'customer[email]',
+          type: 'email',
+          placeholder: 'Email',
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.register.password' | t -%}
+        {% include 'text-input' with
+          name: 'customer[password]',
+          type: 'password',
+          placeholder: 'Password',
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign label = 'customer.register.subscribe' | t -%}
+        {% include 'checkbox' with
+          name: 'customer[accepts_marketing]',
+          label: label %}
+        {%- assign label = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign value = 'customer.register.submit' | t -%}
+        {% include 'submit-button', value: value, type: 'submit' %}
+        {%- assign value = nil -%}
+      </div>
+
+      <div class="form-row">
+        <p class="p">{{ 'customer.register.already_registered' | t }} <a class="link underline" href="/account/login">{{ 'customer.register.sign_in' | t }}</a></p>
+      </div>
+    {% endform %}
+
+  </div>
+</div>

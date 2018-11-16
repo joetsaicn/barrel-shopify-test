@@ -5,17 +5,15 @@
   --paddingM: 50px;
 
   /* Breakpoints */
-  --xxxxs: --breakpoint__xxxxs;
-  --xxxs: --breakpoint__xxxs;
-  --xxs: --breakpoint__xxs;
-  --xs: --breakpoint__xs;
-  --s: --breakpoint__s;
-  --ms: --breakpoint__ms;
-  --m: --breakpoint__m;
-  --ml: --breakpoint__ml;
-  --l: --breakpoint__l;
-  --xl: --breakpoint__xl;
-  --xxl: --breakpoint__xxl;
+  --xxs: 445px;
+  --xs: 625px;
+  --s: 768px;
+  --ms: 840px;
+  --m: 960px;
+  --ml: 1160px;
+  --l: 1290px;
+  --xl: 1440px;
+  --xxl: 1800px;
 
   /* Colors */
   --black: #000000;

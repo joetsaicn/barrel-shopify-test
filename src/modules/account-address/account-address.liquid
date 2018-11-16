@@ -1,43 +1,72 @@
-{%- assign name = name | default: false -%}
-{%- assign company = company | default: false -%}
-{%- assign street = street | default: false -%}
-{%- assign city = city | default: false -%}
-{%- assign province = province | default: false -%}
-{%- assign zip = zip | default: false -%}
-{%- assign country = country | default: false -%}
-{%- assign phone = phone | default: false -%}
-{%- assign default = default | default: false -%}
-{%- assign edit = edit | default: false -%}
+{% paginate customer.addresses by 50 %}
+<div data-module="account-address">
+  <transition name="fade">
+    <div v-if="showNewAddressForm" ref="newAddressForm" v-cloak>
+      {% include 'account-new-address' %}
+    </div>
+  </transition>
 
-<div class="address pv2 ph2 bg-cg1 relative">
-  {%- if default -%}
-    <div class="address__default absolute fit-r h6 bg-cw uppercase">Default</div>
-  {%- endif -%}
+  <h4 class="h4 uppercase align-c account-address__title">{{ 'customer.addresses.title' | t }}</h4>
 
-  <p class="mv0">
-    <strong>{{name}}</strong><br>
-    {%if company%}{{company}}<br>{%endif%}
-    {{- street -}}<br>
-    {{city}}{%if province%}, {{province | upcase}} {%endif%} {{zip | upcase}}<br>
-    {{country}}<br>
-    {%if phone%}{{phone}}{%endif%}
-  </p>
-
-  {%- if edit -%}
-    <div class="address__footer mt2">
-      <button class="link mr05" onclick="barrel.toggleForm({{address.id}})">Edit</button>
-      <button class="link" onclick="barrel.removeAddress({{address.id}})">Delete</button>
+  {%- if customer.addresses.size != 0 -%}
+    <div class="account-address__list" v-cloak>
+    {%- for address in customer.addresses -%}
+      {%- assign default = '' -%}
+      {%- if address == customer.default_address -%}
+        {%- assign default = 1 -%}
+      {%- endif %}
+      <div
+        is="account-address-item"
+        first-name="{{address.first_name}}"
+        last-name="{{address.last_name}}"
+        company="{{address.company}}"
+        address1="{{address.address1}}"
+        address2="{{address.address2}}"
+        city="{{address.city}}"
+        province="{{address.province_code}}"
+        zip="{{address.zip}}"
+        country="{{address.country_code}}"
+        phone="{{address.phone}}"
+        is-default="{{default}}"
+        key="address-{{address.id}}"
+        id="{{address.id}}"
+        v-on:update="populateAddressForm"
+        inline-template>
+      <div class="account-address__item relative">
+          <h5 v-if="isDefault" class="h5 account-address__default">Default</h5>
+          <p class="p2">
+            <span class="h5 account-address__name">
+              <span v-text="firstName + ' ' + lastName"></span>
+            </span>
+            <br v-if="company">
+            <span v-if="company" v-text="company"></span>
+            <br>
+            <span v-text="address1 + ' ' + address2"></span>
+            <br>
+            <span v-text="city"></span>
+            <span v-if="province" class="uppercase" v-text="' ' + province"></span>
+            <span class="uppercase" v-text="' ' + zip"></span>
+            <span class="uppercase" v-text="' ' + country"></span>
+            <br>
+            <span v-text="phone"></span>
+          </p>
+          <div class="account-address__footer">
+            <button class="link" v-on:click="update">{{ 'customer.addresses.edit' | t }}</button>
+            <button class="link" v-on:click="remove">{{ 'customer.addresses.remove' | t }}</button>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+    </div>
+  {%- else -%}
+    <div class="">
+      {% include 'empty-view', is_vue: true, show_button: false, text: "Let's add our first address!" %}
     </div>
   {%- endif -%}
+  <div class="align-c account-adddress__add-address">
+    {%- assign btn_text = 'customer.addresses.add' | t -%}
+    {% include 'button' with value: btn_text, attr: 'v-on:click="showEmptyForm"' %}
+    {%- assign btn_text = nil -%}
+  </div>
 </div>
-
-{%- assign name = false -%}
-{%- assign company = false -%}
-{%- assign street = false -%}
-{%- assign city = false -%}
-{%- assign province = false -%}
-{%- assign zip = false -%}
-{%- assign country = false -%}
-{%- assign phone = false -%}
-{%- assign default = false -%}
-{%- assign edit = false -%}
+{% endpaginate %}

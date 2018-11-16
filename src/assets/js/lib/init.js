@@ -1,88 +1,60 @@
-let __cache = {}
+import select from 'dom-select'
 
-const errors = {
-  duplicate ([id, ...args]) {
-    return [
-      `a duplicate key ${id} was found in the cache. This instance will be overwritten.`,
-      ...args
-    ]
-  },
-  undefined ([id, ...args]) {
-    return [
-      `can't find ${id} in the cache`,
-      ...args
-    ]
-  },
-  error ([id, ...args]) {
-    return [
-      `${id} threw an error\n\n`,
-      ...args
-    ]
+class Init {
+  constructor () {
+    this.nodes = []
+
+    this.init = this.init.bind(this)
+    this.reset = this.reset.bind(this)
   }
-}
 
-function log (level, type, ...args) {
-  console[level]('⚙️ micromanager -', ...errors[type](args))
-}
-
-function init (types, ctx = document) {
-  return {
-    cache: {
-      set (id, instance) {
-        if (__cache[id]) log('warn', 'duplicate', id)
-        __cache[id] = instance
-      },
-      get (id) {
-        try {
-          return __cache[id]
-        } catch (e) {
-          log('warn', 'undefined', id)
-          return null
-        }
-      },
-      dump () {
-        return __cache
+  init () {
+    this.modules = this.fetchModules()
+    for (let i = 0; i < this.modules.length; i++) {
+      if (
+        this.modules[i].fn &&
+        this.modules[i].fn.init
+      ) {
+        this.modules[i].fn.init(this.modules[i].el)
+      } else if (typeof this.modules[i].fn.bind !== 'undefined') {
+        this.modules[i].fn(this.modules[i].el)
       }
-    },
-    mount () {
-      for (let type in types) {
-        const attr = 'data-' + type
-        const nodes = [].slice.call(ctx.querySelectorAll(`[${attr}]`))
-        const path = types[type].replace(/^\/|\/$/, '')
-
-        for (let i = 0; i < nodes.length; i++) {
-          const name = nodes[i].getAttribute(attr)
-
-          try {
-            const instance = type === 'module'
-              ? require(`root/${path}/${name}/${name}.js`).default(nodes[i])
-              : require(`root/${path}/${name}.js`).default(nodes[i])
-
-            nodes[i].removeAttribute(attr)
-
-            if (instance) {
-              this.cache.set(instance.displayName || name, instance)
-            }
-          } catch (e) {
-            log('error', 'error', name, e)
-          }
-        }
-      }
-
-      return this
-    },
-    unmount () {
-      for (let key in __cache) {
-        const instance = __cache[key]
-        if (instance.unmount) {
-          instance.unmount()
-          delete __cache[key]
-        }
-      }
-
-      return this
     }
   }
+
+  reset () {
+    for (let i = 0; i < this.modules.length; i++) {
+      this.modules[i].fn &&
+      this.modules[i].fn.destroy &&
+      this.modules[i].fn.destroy()
+    }
+
+    this.modules = []
+  }
+
+  fetchModules () {
+    const nodes = select.all('[data-module], [is]')
+    const modules = []
+    for (let i = 0; i < nodes.length; i++) {
+      const type = !!nodes[i].getAttribute('data-module')
+        ? 'module'
+        : 'vue'
+
+      const name = type === 'module'
+        ? nodes[i].getAttribute('data-module')
+        : nodes[i].getAttribute('is').replace('vue-', '')
+
+      const fn = type === 'module'
+        ? require(`root/modules/${name}/${name}.js`)
+        : require(`root/modules/${name}/${name}.vue.js`)
+
+      modules.push({
+        fn: fn.default || fn,
+        el: nodes[i]
+      })
+    }
+    return modules
+  }
 }
 
-export default init
+export default new Init()

@@ -30,7 +30,7 @@ input.button[type="submit"] {
 }
 
 .link {
-  color: var(--grey2);
+  text-decoration: underline;
 }
 
 .pointer {

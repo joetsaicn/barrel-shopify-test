@@ -1,0 +1,44 @@
+<div is="account-login-form" inline-template>
+  <div @submit="validate" v-if="active" class="container container--xs">
+
+    {%- assign title = 'customer.login.title' | t -%}
+    {% include 'page-title', title: title %}
+    {%- assign title = nil -%}
+
+    {% form 'customer_login' %}
+
+      {% include 'form-errors', errors: form.errors %}
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.login.email' | t -%}
+        {% include 'text-input' with
+          name: 'customer[email]',
+          type: 'email',
+          placeholder: placeholder,
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign placeholder = 'customer.login.password' | t -%}
+        {% include 'text-input' with
+          name: 'customer[password]',
+          type: 'password',
+          placeholder: placeholder,
+          required: true %}
+        {%- assign placeholder = nil -%}
+      </div>
+
+      <div class="form-row">
+        {%- assign value = 'customer.login.submit' | t -%}
+        {% include 'submit-button', value: value, type: 'submit' %}
+        {%- assign value = nil -%}
+      </div>
+
+      <div class="form-row">
+        <p class="p"><a class="p underline" href="javascript:void(0)" @click="$parent.changeForm('recover')">{{ 'customer.login.forgot_password' | t }}</a></p>
+        <p class="p">{{ 'customer.login.not_registered' | t }} <a class="underline" href="/account/register">{{ 'customer.login.create_account' | t }}</a></p>
+      </div>
+    {% endform %}
+  </div>
+</div>

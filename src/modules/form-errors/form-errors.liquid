@@ -1,0 +1,13 @@
+{%- assign errors = errors | default: false -%}
+
+{%- if errors -%}
+  {%- for field in errors -%}
+    {%- if field == 'form' -%}
+      <p class="p">{{ errors.messages[field] }}</p>
+    {%- else -%}
+      <p class="p">{{ errors.translated_fields[field] | capitalize }} {{ errors.messages[field] }}.</p>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign errors = nil -%}

@@ -1,2 +1,4 @@
 nav.account__nav {}
-li.account__nav__link {}
+li.account__nav__link {
+  padding: 0 20px;
+}

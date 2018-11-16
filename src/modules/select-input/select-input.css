@@ -1,0 +1,58 @@
+.select-input{
+  position: relative;
+  align-items: center;
+  padding-right: 1px; /* Disappearing border-right issue */
+
+  &.select-input--small {
+    display: inline-block;
+  }
+}
+.select-input__el-wrap{
+  position: relative;
+  border: 1px solid var(--black);
+
+  .select-input--small & {
+    border: none;
+    display: inline-block;
+  }
+}
+label + .select-input__el-wrap{
+  margin-top: 7px;
+
+  .select-input--small & {
+    margin-top: 2px;
+  }
+}
+.select-input__el{
+  display: block;
+  width: 100%;
+  height: 48px;
+  z-index: 1;
+  padding-left: 15px;
+  padding-right: 25px;
+
+  .select-input--small & {
+    height: 20px;
+    padding-left: 1px;
+    padding-right: 23px;
+  }
+}
+.select-input__icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(-45deg) translateY(-50%);
+  z-index: 0;
+  border: solid var(--grey2);
+  border-width: 0 0 1px 1px;
+
+  .select-input--small & {
+    width: 6px;
+    height: 6px;
+    top: 8px;
+    right: 4px;
+  }
+}

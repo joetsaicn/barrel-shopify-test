@@ -1,17 +1,27 @@
-{%- assign checked = checked | default: false -%}
-{%- assign id = id | default: false -%}
-{%- assign label = label | default: false -%}
 {%- assign name = name | default: false -%}
+{%- assign value = value | default: false -%}
+{%- assign label = label | default: false -%}
+{%- assign :checked = :checked | default: false -%}
+{%- assign class = class | default: blank -%}
+{%- assign required = required | default: false -%}
+{%- assign @change = @change | default: false -%}
 
-<div class="checkbox">
-  <input class="checkbox__el" {%- if id -%}id="{{- id -}}"{%- endif -%} type="checkbox" {%- if name -%}name="{{- name -}}"{%- endif -%} {%- if checked -%}checked{%- endif -%}>
-  <span class="checkbox__icon">☑️</span>
-  {%- if label -%}
-    <label class="checkbox__label p" {%- if id -%}for="{{- id -}}"{%- endif -%}>{{- label -}}</label>
-  {%- endif -%}
-</div>
+<label class="checkbox {{class}}">
+  <input
+    is="checkbox"
+    type="checkbox"
+    {% if name %}name="{{name}}"{% endif %}
+    {% if value %}value="{{value}}"{% endif %}
+    {% if :checked %}:checked="{{:checked}}"{% endif %}
+    {% if required%}required="{{required}}"{% endif %}
+    {% if @change %}@change="{{@change}}"{% endif %} />
+    <span class="pointer checkbox__label p2">{{label}}</span>
+</label>
 
-{%- assign checked = false -%}
-{%- assign id = false -%}
-{%- assign label = false -%}
-{%- assign name = false -%}
+{%- assign name = nil -%}
+{%- assign value = nil -%}
+{%- assign label = nil -%}
+{%- assign :checked = nil -%}
+{%- assign class = nil -%}
+{%- assign required = nil -%}
+{%- assign @change = nil -%}

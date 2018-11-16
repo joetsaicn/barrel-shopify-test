@@ -1,4 +1,4 @@
-<section class="outer mt2">
+<section class="mt2">
   <div class="container--s mha pt1">
     <h5 class="block mt0 mb05">Date: {{order.created_at | date: '%b %d, %Y'}}</h5>
 
@@ -14,7 +14,7 @@
   </div>
 </section>
 
-<section class="outer">
+<section>
   <div class="container--s mha">
     {%- if order.cancelled -%}
       {%- assign cancelled_at = order.cancelled_at | date: "%b %d, %Y @ %I:%M %p" -%}
@@ -30,7 +30,7 @@
   </div>
 </section>
 
-<section class="outer mt2">
+<section class="mt2">
   <div class="container--s mha pv1">
 
     <h2 class="h4 mb05 mt0">Details</h2>
@@ -89,7 +89,7 @@
   </div>
 </section>
 
-<section class="outer mt2">
+<section class="mt2">
   <div class="container--s mha pv1">
 
     <h2 class="h4 mb05 mt0">Totals</h2>
@@ -146,7 +146,7 @@
   </div>
 </section>
 
-<section class="outer mt2">
+<section class="mt2">
   <div class="container--s mha pv1">
     <div class="f fw mhn1">
 
