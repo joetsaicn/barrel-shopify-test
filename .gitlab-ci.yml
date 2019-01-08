@@ -12,10 +12,10 @@ test_git:
   stage: test
   script:
     - bash scripts/git.sh
-# test_grammars:
-#   stage: test
-#   script:
-#     - bash scripts/test_grammars.sh
+test_grammars:
+  stage: test
+  script:
+    - bash scripts/test_grammars.sh
 manage_staging:
   stage: deploy
   script:
