@@ -8,7 +8,7 @@ const btn = select('.js-cart-btn', nav)
 const getMiniCart = (cart, wrapper) => {
   return new Promise((resolve, reject) => {
     nano.ajax(
-      {url: `/cart?view=mini`},
+      { url: `/cart?view=mini` },
       (code, res) => {
         cart.classList.add('is-loaded')
         wrapper.innerHTML = res.trim()

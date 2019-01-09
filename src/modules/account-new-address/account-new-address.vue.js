@@ -1,3 +1,4 @@
+/* global Countries */
 import Vue from 'vue'
 import select from 'dom-select'
 
@@ -62,7 +63,7 @@ Vue.component('account-new-address', {
         Countries[k]['code'] === value
       ))
     },
-    onInputChange ({name, value}) {
+    onInputChange ({ name, value }) {
       const match = /\D\[(\D+)\]/.exec(name)
       if (!match || !match[1]) {
         return false

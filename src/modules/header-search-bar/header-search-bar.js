@@ -1,5 +1,5 @@
 export default searchBar => {
-  const form = searchBar.getElementsByTagName('form')[0]
+  // const form = searchBar.getElementsByTagName('form')[0]
   const input = searchBar.getElementsByTagName('input')[0]
   const toggle = document.getElementById('searchToggle')
 

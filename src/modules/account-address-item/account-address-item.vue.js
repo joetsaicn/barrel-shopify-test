@@ -1,3 +1,4 @@
+/* global confirm */
 import Vue from 'vue'
 import {
   deepClone
