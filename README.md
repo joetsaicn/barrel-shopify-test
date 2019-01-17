@@ -13,13 +13,47 @@ For contributing process and guidelines, check CONTRIBUTING.md.
 ## Getting Started
 
 #### Get API Key and Password
-Create a private app on the Shopify store you're working on to access your API key and password. See the [Shopify Theme README](https://github.com/Shopify/shopify_theme) above for more info.
+* If you're jumping on a project, please ask the lead developer and/or producer for the credentials of the development private app.
+* If you're starting on a project, please follow the steps described [here|(https://shopify.github.io/themekit/#get-api-access)] to create a new private app and retrieve from it the API key and password.
 
 #### Edit Config File
-Open `config-example.yml`, deplicate and rename it to `config.yml` and replace the `api_key` `password` `store` and `theme_id` values with the data from the private app you have created (See step above).
+* Duplicate `config-example.yml` and rename it to `config.yml`
+* Open `config.yml`
+* For each of your environments `development`, `staging` and `production`:
+** Set the credentials for `api_key` and `password` based on the private app generated in the previous step
+** Set the store url for `store`
+** Set the theme id for `theme_id`
+** (Optional) If there are some files that should remain untouched and not uploaded to your theme, add `ignore_files` to your environment config. e.g. `ignore_files: - config/settings_data.json` 
+
+The `config.yml` should look similar to:
+```
+production:
+	theme_id: 12345678901
+	api_key: 4636bc042223f53fa4e79c77bf810ea6
+	password: bb1c31588ca73c6096d6b60a045e6919
+	store: my-store.myshopify.com
+	ignore_files:
+	- config/settings_data.json
+staging:
+	theme_id: 12345678902
+	api_key: 4636bc042223f53fa4e79c77bf810ea6
+	password: bb1c31588ca73c6096d6b60a045e6919
+	store: my-store.myshopify.com
+development:
+	theme_id: 12345678903
+	api_key: 4636bc042223f53fa4e79c77bf810ea6
+	password: bb1c31588ca73c6096d6b60a045e6919
+	store: my-store.myshopify.com
+
+```
 
 ## Developing
-To start development, open up a terminal window, navigate to the theme root folder and run `npm start`. This will compile, watch and hot reload your javascript and css. It'll also lint your js using [standardjs](https://standardjs.com/) best practices. If you make a change to a file that needs to be uploaded to Shopify, the process will handle it and reload your browser once it's been uploaded. 
+
+#### Installing dependencies
+Open up a terminal window, navigate to the theme root folder and run `npm i` to install all the dependencies referencered in `package.json`.
+
+#### Start development
+Open up a terminal window, navigate to the theme root folder and run `npm start`. This will compile, watch and hot reload your javascript and css. It'll also lint your js using [standardjs](https://standardjs.com/) best practices. If you make a change to a file that needs to be uploaded to Shopify, the process will handle it and reload your browser once it's been uploaded. 
 
 Note: In your Shopify Theme Settings, there is a setting called *Access site through BrowserSync?*, under the Dev, Logo, Favicon section. Make sure that this option is checked for your development themes, unchecked for your staging and production themes. 
 
@@ -33,17 +67,6 @@ Each of the scripts reference a different environment as defined in your `config
 
 ## Pre-requisites
 These are things that you'll need to have for all Shopify builds, and all builds at Barrel in general.
-
-#### Update Environment
-Make sure your node environment is updated. You're using Homebrew for this, right?
-
-```bash
-# check kegs and brew version
-brew update 
-
-# update node
-brew upgrade node
-```
 
 ## Misc
 
