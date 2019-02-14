@@ -4,6 +4,7 @@
 .nav {
   height: var(--h-height);
   border-bottom: 1px solid #000;
+  transition: opacity var(--duration) var(--ease);
 
   @media (--s){
     height: var(--h-height-lg);

@@ -23,7 +23,7 @@
   },
   "homepage": "https://gitlab.com/barrel/barrel-shopify-base#README",
   "devDependencies": {
-    "@barrelny/cli": "1.0.1",
+    "@barrelny/cli": "latest",
     "autoprefixer": "^7.2.6",
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
@@ -59,6 +59,7 @@
   },
   "dependencies": {
     "conform.js": "^0.3.3",
+    "cookies-js": "^1.2.3",
     "dom-event": "^1.0.0",
     "dom-select": "^1.1.1",
     "feature.js": "^1.0.0",
