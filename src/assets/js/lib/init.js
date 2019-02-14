@@ -36,7 +36,7 @@ class Init {
     const nodes = select.all('[data-module], [is]')
     const modules = []
     for (let i = 0; i < nodes.length; i++) {
-      const type = !!nodes[i].getAttribute('data-module')
+      const type = nodes[i].getAttribute('data-module')
         ? 'module'
         : 'vue'
 

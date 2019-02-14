@@ -1,9 +1,23 @@
 stages:
-  - themes
-  - deployment
-image: barrelny/pantheon-ci:0.0.9
+  - test
+  - deploy
+  - merge_request
+image: barrelny/multipurpose-ci:0.0.11
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - dist/
+test_git:
+  stage: test
+  script:
+    - bash scripts/git.sh
+test_grammars:
+  stage: test
+  script:
+    - bash scripts/test_grammars.sh
 manage_staging:
-  stage: themes
+  stage: deploy
   script:
     - chmod +x ./scripts/themes.sh
     - ./scripts/themes.sh --staging
@@ -14,8 +28,36 @@ manage_staging:
 #   script:
 #     - chmod +x ./scripts/themes.sh
 #     - ./themes.sh
+# deploy:staging:
+#   stage: deploy
+#   image: node:6
+#   variables:
+#     THEME_ID: ""
+#   before_script:
+#     - git log --oneline -1 > commit.txt
+#   script:
+#     - bash ./ci/build -e staging
+#   environment:
+#     name: test
+#   when: manual
+#   only:
+#     - barrel-dev
+# deploy:live:
+#   stage: deploy
+#   image: node:6
+#   variables:
+#     THEME_ID: ""
+#   before_script:
+#     - git log --oneline -1 > commit.txt
+#   script:
+#     - bash ./ci/build -e production
+#   environment:
+#     name: live
+#   when: manual
+#   only:
+#     - master
 deploy:
-  stage: deployment
+  stage: deploy
   script:
     - chmod +x ./scripts/deployments.sh
     - ./scripts/deployments.sh

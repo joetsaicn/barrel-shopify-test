@@ -9,8 +9,8 @@ export default (el) => {
       {
         name: /EMAIL|contact\[email\]/,
         validate: ({ value }) => /.+@.+\..+/.test(value), // basic email check
-        success: ({node}) => node.classList.remove('has-error'),
-        error: ({node}) => node.classList.add('has-error')
+        success: ({ node }) => node.classList.remove('has-error'),
+        error: ({ node }) => node.classList.add('has-error')
       }
     ]
   })

@@ -25,7 +25,7 @@ Vue.component('checkbox', {
     onChange () {
       this.isChecked = !this.isChecked
       let value = this.isChecked ? this.publicValue : false
-      this.$emit('change', {name: this.name, value})
+      this.$emit('change', { name: this.name, value })
     }
   },
   template: `

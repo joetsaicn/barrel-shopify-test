@@ -1,5 +1,6 @@
+/* global Image */
 import Vue from 'vue'
-import {supportsObjectFit} from 'lib/util'
+import { supportsObjectFit } from 'lib/util'
 
 Vue.component('vue-image', {
   props: [
@@ -37,12 +38,12 @@ Vue.component('vue-image', {
     backgroundImage () {
       const sources =
       (this.srcset || this.src)
-      .split(/\s?,\s?/)
-      .reduce((o, val) => {
-        let brk = val.split(/\s|w$/)
-        o[brk[1] || 0] = brk[0]
-        return o
-      }, {})
+        .split(/\s?,\s?/)
+        .reduce((o, val) => {
+          let brk = val.split(/\s|w$/)
+          o[brk[1] || 0] = brk[0]
+          return o
+        }, {})
 
       return sources[Math.max(...Object.keys(sources))]
     }

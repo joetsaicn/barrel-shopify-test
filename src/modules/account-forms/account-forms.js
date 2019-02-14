@@ -1,3 +1,4 @@
+/* global location, history */
 import Vue from 'vue'
 import qs from 'query-string'
 

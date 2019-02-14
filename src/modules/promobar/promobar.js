@@ -1,5 +1,4 @@
 import promobar from 'promobar'
-import events from 'pubsub-js'
 
 export default el => {
   const promo = promobar(el)
