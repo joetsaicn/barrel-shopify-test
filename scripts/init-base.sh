@@ -27,6 +27,7 @@ LEGACY_MISC_DEST="./src/assets/legacy/misc"
 # Only run this at the root path of the Shopify project
 if [ ! -d .git ]; then
   printf "Need to run this at the root path of the project"
+  exit 1
 fi
 
 # Remove all existing files in src
