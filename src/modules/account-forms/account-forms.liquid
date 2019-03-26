@@ -1,9 +1,0 @@
-<div data-module="account-forms" v-cloak>
-  {% case view %}
-    {% when 'register' %} {% include 'account-register-form' %}
-    {% when 'reset' %} {% include 'account-reset-form' %}
-    {% when 'login' %}
-      {% include 'account-login-form' %}
-      {% include 'account-recover-form' %}
-  {% endcase %}
-</div>
