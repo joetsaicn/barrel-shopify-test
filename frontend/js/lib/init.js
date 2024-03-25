@@ -25,6 +25,24 @@ function log (level, type, ...args) {
   console[level]('⚙️ micromanager -', ...errors[type](args))
 }
 
+function getModuleName (node) {
+  return node.getAttribute('data-module') || ''
+}
+
+function requireModule (moduleName = '', node) {
+  if (moduleName) {
+    return import(`../../../modules/${moduleName}/${moduleName}.js`)
+      .then(({ default: fn }) => Promise.resolve({
+        fn: fn.bind(null, node),
+        name: moduleName
+      }))
+  }
+}
+
+function getNodes (ctx, selector) {
+  return [].slice.call(ctx.querySelectorAll(selector))
+}
+
 function init (types, ctx = document) {
   return {
     cache: {
@@ -44,30 +62,31 @@ function init (types, ctx = document) {
         return __cache
       }
     },
-    mount () {
-      for (let type in types) {
-        const attr = 'data-' + type
-        const nodes = [].slice.call(ctx.querySelectorAll(`[${attr}]`))
-        const path = types[type].replace(/^\/|\/$/, '')
+    async mount () {
+      const modules = []
+      const appModules = []
 
-        for (let i = 0; i < nodes.length; i++) {
-          const name = nodes[i].getAttribute(attr)
+      const callModule = m => {
+        const instance = m.fn()
 
-          try {
-            const instance = type === 'module'
-              ? require(`root/${path}/${name}/${name}.js`).default(nodes[i])
-              : require(`root/${path}/${name}.js`).default(nodes[i])
-
-            nodes[i].removeAttribute(attr)
-
-            if (instance) {
-              this.cache.set(instance.displayName || name, instance)
-            }
-          } catch (e) {
-            log('error', 'error', name, e)
-          }
+        if (instance) {
+          this.cache.set(m.name, instance)
         }
+
+        return instance
       }
+
+      const loadModules = selector => {
+        getNodes(ctx, selector)
+          .filter(getModuleName)
+          .map(async node => {
+            const instance = await requireModule(getModuleName(node), node)
+            node.removeAttribute('data-module')
+            callModule(instance)
+          })
+      }
+
+      loadModules('[data-module]')
 
       return this
     },
