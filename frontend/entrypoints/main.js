@@ -7,8 +7,8 @@ import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes'
 import 'lazysizes/plugins/respimg/ls.respimg'
 
-import init from 'lib/init'
-import { set, unset, toggle, isMobile } from 'lib/util'
+import init from '@/js/lib/init'
+import { set, unset, toggle, isMobile } from '@/js/lib/util'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/, 'js')

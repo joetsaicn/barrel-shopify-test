@@ -1,4 +1,4 @@
-import {isMobile} from 'lib/util'
+import {isMobile} from '@/js/lib/util'
 
 export default {
   sidebarVisible: true,
