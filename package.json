@@ -2,7 +2,9 @@
   "name": "barrel-shopify-base",
   "version": "1.4.7",
   "description": "A base scaffold for building Shopify sites.",
-  "main": "webpack.config.js",
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "start": "concurrently --prefix none npm:dev npm:serve",
     "dev": "vite dev",
