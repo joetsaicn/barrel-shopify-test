@@ -3,6 +3,7 @@ import copy from 'rollup-plugin-copy'
 import shopify from 'vite-plugin-shopify'
 import shopifyModules from 'vite-plugin-shopify-modules'
 import cleanup from '@by-association-only/vite-plugin-shopify-clean'
+import dynamicImport from 'vite-plugin-dynamic-import'
 
 export default defineConfig({
   build: {
@@ -18,6 +19,7 @@ export default defineConfig({
   },
   publicDir: 'public',
   plugins: [
+    dynamicImport(),
     /**
      * Copy plain static assets to the root of the dist directory as-is.
      * - During build, vite knows how to handle it
