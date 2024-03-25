@@ -1,4 +1,4 @@
-__webpack_public_path__ = BRRL_PATH(BRRL_PUBLIC_PATH) // eslint-disable-line camelcase
+import 'vite/modulepreload-polyfill'
 
 import 'lazysizes/plugins/object-fit/ls.object-fit'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
