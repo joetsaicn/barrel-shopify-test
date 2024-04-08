@@ -1,0 +1,2 @@
+var o={},c={get exports(){return o},set exports(n){o=n}};c.exports=t;o.all=l;function t(n,r){return r||(r=document),r.querySelector(n)}function l(n,r){r||(r=document);var e=r.querySelectorAll(n);return Array.prototype.slice.call(e)}const i=o("#icon-checkmark").innerHTML,s=o("#icon-cross").innerHTML,a=o("#icon-arrow-b").innerHTML,u=o("#icon-large-grid").innerHTML,d=o("#icon-small-grid").innerHTML;export{a as IconArrowB,i as IconCheckmark,s as IconCross,u as IconLargeGrid,d as IconSmallGrid};
+//# sourceMappingURL=icons.6d6bb4ad.js.map
