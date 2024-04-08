@@ -1,0 +1,2 @@
+import{s}from"./index.f05ca3cb.js";import{n as o}from"./index.e592101e.js";import{d as r}from"./index.4eea82f0.js";import"./_commonjsHelpers.28e086c5.js";const n=s("#nav"),c=s(".js-cart-btn",n),m=(e,t)=>new Promise((a,l)=>{o.ajax({url:"/cart?view=mini"},(d,i)=>{e.classList.add("is-loaded"),t.innerHTML=i.trim()})}),b=e=>{let t=e,a=s(".js-table",t);r(c,"mouseenter",()=>{t.classList.add("is-active"),m(t,a)}),r(t,"mouseleave",()=>{t.classList.remove("is-active")})};export{b as default};
+//# sourceMappingURL=mini-cart.9bbc54f8.js.map

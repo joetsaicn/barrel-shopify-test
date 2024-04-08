@@ -1,0 +1,2 @@
+function o(r,e){return(e||document).querySelector(r)}o.exists=function(r,e){return Boolean(o(r,e))};o.all=function(r,e){if(!e||typeof e.querySelectorAll=="function")return Array.apply(null,(e||document).querySelectorAll(r));var t,n,l,u=[];for(n=0;n<e.length;n++)for(t=e[n].querySelectorAll(r),l=0;l<t.length;l++)u.indexOf(t[l])<0&&u.push(t[l]);return u};var c=o;const i=c;export{i as s};
+//# sourceMappingURL=index.f05ca3cb.js.map
