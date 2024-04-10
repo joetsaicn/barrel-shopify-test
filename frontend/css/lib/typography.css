@@ -92,3 +92,40 @@ p {
 .decoration--none {
   text-decoration: none;
 }
+
+h1 {
+  @extend .h1;
+}
+h2 {
+  @extend .h2;
+}
+h3 {
+  @extend .h3;
+}
+h4, h5, h6 {
+  @extend .h4;
+}
+
+ol, ul {
+  @extend .list;
+}
+
+blockquote {
+  @extend .blockquote;
+}
+
+hr {
+  @extend .hr;
+}
+
+a {
+  @extend .link;
+}
+
+i, em {
+  @extend .italic;
+}
+
+b, strong {
+  @extend .bold;
+}
