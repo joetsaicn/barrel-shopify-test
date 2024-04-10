@@ -1,191 +1,202 @@
 {
-  "frontend\/entrypoints\/main.css": {
-    "file": "main.0c35041f.css",
-    "src": "frontend\/entrypoints\/main.css",
-    "isEntry": true
+  "__commonjsHelpers.725317a4.js": {
+    "file": "_commonjsHelpers.725317a4.js"
+  },
+  "_index.3c7b7ec4.js": {
+    "file": "index.3c7b7ec4.js",
+    "imports": [
+      "_index.b0574762.js",
+      "_index.a394a8ae.js"
+    ]
+  },
+  "_index.8ad09b72.js": {
+    "file": "index.8ad09b72.js",
+    "imports": [
+      "__commonjsHelpers.725317a4.js"
+    ]
   },
   "_index.a394a8ae.js": {
     "file": "index.a394a8ae.js"
   },
-  "modules\/quantity-selector\/quantity-selector.js": {
-    "file": "quantity-selector.bee8f908.js",
-    "src": "modules\/quantity-selector\/quantity-selector.js",
-    "isDynamicEntry": true,
+  "_index.b0574762.js": {
+    "file": "index.b0574762.js",
     "imports": [
-      "_index.f05ca3cb.js",
-      "_index.4eea82f0.js"
+      "__commonjsHelpers.725317a4.js"
     ]
   },
-  "modules\/plp--complex\/lib\/defaults.js": {
-    "file": "defaults.ba35ef38.js",
-    "src": "modules\/plp--complex\/lib\/defaults.js",
-    "isDynamicEntry": true
-  },
-  "modules\/contact-form\/contact-form.js": {
-    "file": "contact-form.f70e7cf3.js",
-    "src": "modules\/contact-form\/contact-form.js",
-    "isDynamicEntry": true,
+  "_index.ed2b1b1e.js": {
+    "file": "index.ed2b1b1e.js",
     "imports": [
-      "_index.c5a27f6d.js",
-      "_index.e592101e.js",
-      "__commonjsHelpers.28e086c5.js",
-      "_index.a394a8ae.js"
+      "__commonjsHelpers.725317a4.js"
     ]
   },
-  "modules\/newsletter\/newsletter.js": {
-    "file": "newsletter.4a92ae2d.js",
-    "src": "modules\/newsletter\/newsletter.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.c5a27f6d.js",
-      "_index.e592101e.js",
-      "__commonjsHelpers.28e086c5.js",
-      "_index.a394a8ae.js"
-    ]
-  },
-  "modules\/account-login\/account-login.js": {
-    "file": "account-login.4b8a4036.js",
-    "src": "modules\/account-login\/account-login.js",
-    "isDynamicEntry": true
-  },
-  "modules\/plp--complex\/lib\/reducers.js": {
-    "file": "reducers.95d03388.js",
-    "src": "modules\/plp--complex\/lib\/reducers.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "modules\/plp--complex\/lib\/util.js"
-    ]
-  },
-  "modules\/promobar\/promobar.js": {
-    "file": "promobar.ed6d1257.js",
-    "src": "modules\/promobar\/promobar.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.a394a8ae.js",
-      "__commonjsHelpers.28e086c5.js"
-    ]
-  },
-  "_index.e592101e.js": {
-    "file": "index.e592101e.js",
-    "imports": [
-      "__commonjsHelpers.28e086c5.js"
-    ]
-  },
-  "modules\/plp--complex\/components\/icons.js": {
-    "file": "icons.6d6bb4ad.js",
-    "src": "modules\/plp--complex\/components\/icons.js",
-    "isDynamicEntry": true
-  },
-  "modules\/plp--complex\/lib\/connectors.js": {
-    "file": "connectors.b1b184b2.js",
-    "src": "modules\/plp--complex\/lib\/connectors.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.e592101e.js",
-      "modules\/plp--complex\/lib\/util.js",
-      "__commonjsHelpers.28e086c5.js"
-    ]
-  },
-  "modules\/mini-cart\/mini-cart.js": {
-    "file": "mini-cart.9bbc54f8.js",
-    "src": "modules\/mini-cart\/mini-cart.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.f05ca3cb.js",
-      "_index.e592101e.js",
-      "_index.4eea82f0.js",
-      "__commonjsHelpers.28e086c5.js"
-    ]
-  },
-  "_index.c5a27f6d.js": {
-    "file": "index.c5a27f6d.js",
-    "imports": [
-      "_index.e592101e.js",
-      "_index.a394a8ae.js"
-    ]
-  },
-  "modules\/cart-shipping-calculator\/cart-shipping-calculator.js": {
-    "file": "cart-shipping-calculator.3e4e8c57.js",
-    "src": "modules\/cart-shipping-calculator\/cart-shipping-calculator.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.a394a8ae.js",
-      "_index.e592101e.js",
-      "__commonjsHelpers.28e086c5.js"
-    ]
-  },
-  "_index.4eea82f0.js": {
-    "file": "index.4eea82f0.js"
-  },
-  "modules\/image\/image.js": {
-    "file": "image.2aac3c2f.js",
-    "src": "modules\/image\/image.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index.4eea82f0.js"
-    ]
-  },
-  "_index.f05ca3cb.js": {
-    "file": "index.f05ca3cb.js"
-  },
-  "modules\/plp--complex\/lib\/actions.js": {
-    "file": "actions.c6888e02.js",
-    "src": "modules\/plp--complex\/lib\/actions.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "modules\/plp--complex\/lib\/connectors.js",
-      "_index.e592101e.js",
-      "__commonjsHelpers.28e086c5.js",
-      "modules\/plp--complex\/lib\/util.js"
-    ]
-  },
-  "__commonjsHelpers.28e086c5.js": {
-    "file": "_commonjsHelpers.28e086c5.js"
-  },
-  "modules\/plp--complex\/lib\/util.js": {
-    "file": "util.d149b615.js",
-    "src": "modules\/plp--complex\/lib\/util.js",
-    "isDynamicEntry": true
-  },
-  "modules\/plp--complex\/lib\/store.js": {
-    "file": "store.66f716bb.js",
-    "src": "modules\/plp--complex\/lib\/store.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "modules\/plp--complex\/lib\/util.js",
-      "modules\/plp--complex\/lib\/reducers.js",
-      "modules\/plp--complex\/lib\/defaults.js"
-    ]
-  },
-  "frontend\/entrypoints\/main.js": {
-    "file": "main.5228d8c8.js",
-    "src": "frontend\/entrypoints\/main.js",
+  "frontend/entrypoints/main.css": {
+    "file": "main.9581e0a5.css",
     "isEntry": true,
-    "dynamicImports": [
-      "modules\/account-login\/account-login.js",
-      "modules\/carousel\/carousel.js",
-      "modules\/cart-shipping-calculator\/cart-shipping-calculator.js",
-      "modules\/contact-form\/contact-form.js",
-      "modules\/image\/image.js",
-      "modules\/mini-cart\/mini-cart.js",
-      "modules\/newsletter\/newsletter.js",
-      "modules\/promobar\/promobar.js",
-      "modules\/quantity-selector\/quantity-selector.js",
-      "modules\/plp--complex\/components\/icons.js",
-      "modules\/plp--complex\/lib\/actions.js",
-      "modules\/plp--complex\/lib\/connectors.js",
-      "modules\/plp--complex\/lib\/defaults.js",
-      "modules\/plp--complex\/lib\/reducers.js",
-      "modules\/plp--complex\/lib\/store.js",
-      "modules\/plp--complex\/lib\/util.js"
-    ]
+    "src": "frontend/entrypoints/main.css"
   },
-  "modules\/carousel\/carousel.js": {
-    "file": "carousel.adf9627f.js",
-    "src": "modules\/carousel\/carousel.js",
+  "frontend/entrypoints/main.js": {
+    "dynamicImports": [
+      "modules/account-login/account-login.js",
+      "modules/carousel/carousel.js",
+      "modules/cart-shipping-calculator/cart-shipping-calculator.js",
+      "modules/contact-form/contact-form.js",
+      "modules/image/image.js",
+      "modules/mini-cart/mini-cart.js",
+      "modules/newsletter/newsletter.js",
+      "modules/promobar/promobar.js",
+      "modules/quantity-selector/quantity-selector.js",
+      "modules/plp--complex/components/icons.js",
+      "modules/plp--complex/lib/actions.js",
+      "modules/plp--complex/lib/connectors.js",
+      "modules/plp--complex/lib/defaults.js",
+      "modules/plp--complex/lib/reducers.js",
+      "modules/plp--complex/lib/store.js",
+      "modules/plp--complex/lib/util.js"
+    ],
+    "file": "main.d77779ff.js",
+    "isEntry": true,
+    "src": "frontend/entrypoints/main.js"
+  },
+  "modules/account-login/account-login.js": {
+    "file": "account-login.4b8a4036.js",
     "isDynamicEntry": true,
+    "src": "modules/account-login/account-login.js"
+  },
+  "modules/carousel/carousel.js": {
+    "file": "carousel.d8655147.js",
     "imports": [
-      "__commonjsHelpers.28e086c5.js"
-    ]
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/carousel/carousel.js"
+  },
+  "modules/cart-shipping-calculator/cart-shipping-calculator.js": {
+    "file": "cart-shipping-calculator.c2928e12.js",
+    "imports": [
+      "_index.a394a8ae.js",
+      "_index.b0574762.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/cart-shipping-calculator/cart-shipping-calculator.js"
+  },
+  "modules/contact-form/contact-form.js": {
+    "file": "contact-form.d09bbc6f.js",
+    "imports": [
+      "_index.3c7b7ec4.js",
+      "_index.b0574762.js",
+      "__commonjsHelpers.725317a4.js",
+      "_index.a394a8ae.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/contact-form/contact-form.js"
+  },
+  "modules/image/image.js": {
+    "file": "image.383c585e.js",
+    "imports": [
+      "_index.ed2b1b1e.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/image/image.js"
+  },
+  "modules/mini-cart/mini-cart.js": {
+    "file": "mini-cart.8d14cec8.js",
+    "imports": [
+      "_index.8ad09b72.js",
+      "_index.b0574762.js",
+      "_index.ed2b1b1e.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/mini-cart/mini-cart.js"
+  },
+  "modules/newsletter/newsletter.js": {
+    "file": "newsletter.bcfe360a.js",
+    "imports": [
+      "_index.3c7b7ec4.js",
+      "_index.b0574762.js",
+      "__commonjsHelpers.725317a4.js",
+      "_index.a394a8ae.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/newsletter/newsletter.js"
+  },
+  "modules/plp--complex/components/icons.js": {
+    "file": "icons.666cb005.js",
+    "imports": [
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/components/icons.js"
+  },
+  "modules/plp--complex/lib/actions.js": {
+    "file": "actions.c104db11.js",
+    "imports": [
+      "modules/plp--complex/lib/connectors.js",
+      "_index.b0574762.js",
+      "__commonjsHelpers.725317a4.js",
+      "modules/plp--complex/lib/util.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/actions.js"
+  },
+  "modules/plp--complex/lib/connectors.js": {
+    "file": "connectors.083ff3be.js",
+    "imports": [
+      "_index.b0574762.js",
+      "modules/plp--complex/lib/util.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/connectors.js"
+  },
+  "modules/plp--complex/lib/defaults.js": {
+    "file": "defaults.ba35ef38.js",
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/defaults.js"
+  },
+  "modules/plp--complex/lib/reducers.js": {
+    "file": "reducers.50529dae.js",
+    "imports": [
+      "modules/plp--complex/lib/util.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/reducers.js"
+  },
+  "modules/plp--complex/lib/store.js": {
+    "file": "store.b5c238de.js",
+    "imports": [
+      "modules/plp--complex/lib/util.js",
+      "modules/plp--complex/lib/reducers.js",
+      "modules/plp--complex/lib/defaults.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/store.js"
+  },
+  "modules/plp--complex/lib/util.js": {
+    "file": "util.c203a9b9.js",
+    "isDynamicEntry": true,
+    "src": "modules/plp--complex/lib/util.js"
+  },
+  "modules/promobar/promobar.js": {
+    "file": "promobar.61e43a1a.js",
+    "imports": [
+      "_index.a394a8ae.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/promobar/promobar.js"
+  },
+  "modules/quantity-selector/quantity-selector.js": {
+    "file": "quantity-selector.e45f3427.js",
+    "imports": [
+      "_index.8ad09b72.js",
+      "_index.ed2b1b1e.js",
+      "__commonjsHelpers.725317a4.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "modules/quantity-selector/quantity-selector.js"
   }
 }
