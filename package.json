@@ -10,7 +10,7 @@
     "dev": "vite dev",
     "serve": "shopify theme dev --store=barrel-base",
     "build": "vite build",
-    "deploy": "npm run build && shopify switch --store=barrel-base && shopify theme push --nodelete --ignore \"locales/*.json\" --ignore \"config/settings_data.json\" --ignore \"templates/*.json\""
+    "deploy": "npm run build && shopify theme push --store=barrel-base --nodelete --ignore \"locales\\/[^\\/]*\\.json\" --ignore \"config/settings_data.json\" --ignore \"templates\\/[^\\/]*\\.json\""
   },
   "repository": {
     "type": "git",
