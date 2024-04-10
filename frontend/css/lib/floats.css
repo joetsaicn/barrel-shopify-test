@@ -8,7 +8,7 @@
   float: none 
 }
 
-// CLEARFIX
+/* CLEARFIX */
 .clear {
   &::before,
   &::after {
