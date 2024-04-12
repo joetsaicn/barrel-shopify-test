@@ -55,7 +55,10 @@ export const updatePrice = price => {
 }
 export const removeLoadingState = () => {
   setTimeout(() => {
-    document.querySelector('.js-plp-app').classList.remove('is-loading')
+    const plpApp = document.querySelector('.js-plp-app')
+    if (plpApp) {
+      plpApp.classList.remove('is-loading')
+    }
   }, 500)
 
   return {

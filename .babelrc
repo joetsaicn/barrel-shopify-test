@@ -5,9 +5,5 @@
     "transform-decorators-legacy",
     ["transform-react-jsx", { "pragma": "h" }]
   ],
-  "sourceMaps": true,
-  "presets": [
-    "stage-0",
-    "es2015"
-  ]
+  "sourceMaps": false
 }

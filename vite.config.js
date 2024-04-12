@@ -4,6 +4,7 @@ import shopify from 'vite-plugin-shopify'
 import shopifyModules from 'vite-plugin-shopify-modules'
 import cleanup from '@by-association-only/vite-plugin-shopify-clean'
 import dynamicImport from 'vite-plugin-dynamic-import'
+import babel from 'vite-plugin-babel';
 
 export default defineConfig({
   build: {
@@ -15,10 +16,17 @@ export default defineConfig({
         assetFileNames: `[name].[hash].[ext]`
       }
     },
-    sourcemap: true
+    sourcemap: false
+  },
+  resolve: {
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat'
+    }
   },
   publicDir: 'public',
   plugins: [
+    babel(),
     dynamicImport(),
     /**
      * Copy plain static assets to the root of the dist directory as-is.
