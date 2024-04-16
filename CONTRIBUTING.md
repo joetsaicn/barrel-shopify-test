@@ -1,75 +1,56 @@
-# Contributing
+# Contributing to the 3-Hour Shopify Test
 
-## How to Contribute
-1. Create an issue
-2. Fix an issue and submit a PR
-3. Check internal JIRA for new features and updates
+## Prerequisites
 
-## Development Process
-For normal development, we follow a basic Git Flow process.
+1. Running a computer with terminal access: Windows with WSL or MacOS or a Debian-based Linux OS.
+2. Ensure `git` is installed on your system.
+3. Ensure `node` (LTS) and its package manager `npm` are installed on your system.
 
-1. Pull down latest `master` branch.
-2. Create a new branch named after the feature or features you intend to work on. If you're going to be making a variety of changes, use a generic branch name (can even be your name).
-3. Edit and commit code. See [commit](#commit-messages) guidelines.
-4. When you're ready, push up your branch and submit a PR **even if you're the lead on this project.** 
-5. Summarize all changes as line-items in the PR message.
+   > Note: `node v20.12.21` is confirmed to work with this setup.
+4. Sign in or create a free account on Github.
+5. Sign in or create a free partner account on Shopify.
 
-#### Commit Messages
-Commits should be detailed. Use relevant keywords. If a single commit is to contain many little changes, try to group them into topical groups. 
+## Local Environment Setup
 
-If a commit will break to two lines, create a meaningful header + colon `:` and then add an empty line between your header and the line items contained in the commit. Example:
+1. Clone the **Barrel Shopify Test** repo from: [https://github.com/barrel/barrel-shopify-test](https://github.com/barrel/barrel-shopify-test)
 
-```bash
-# with 4 changes to merge
-git commit -m "Homepage slideshow updates:
->
-> Increase spacing above button
-> Fix prev/next button disabled states
-> Smooth out image load transition
-> Add touchevents handling for video on mobile"
-```
+   ```bash
+   cd ~/Sites
+   git clone git@github.com:barrel/barrel-shopify-test.git
+   cd barrel-shopify-test
+   ```
+2. Fork or clone and push to a new/empty repository of your own.
+3. 
+4. Assume the following git branches and use them as they relate to your work:
+   1. production = `main`
+   2. development = `develop`
+   3. feature = `feature/*`
+   4. bugfix = `bugfix/*`
+   5. hotfix = `hotfix/*`
+5. Push your work branch to your fork and submit a **Pull Request** back to the main repository.
 
-#### Merging Locally
-Sometimes you might want to merge a branch locally. This often happens after resolving conflicts. When doing this, **create a merge commit** using the `--no-ff` (no fast-forward) flag:
-```bash
-git checkout master
-git merge home-slideshow --no-ff
-```
+## Public Environment Setup
 
-This will open vim and allow you to summarize all commits contained in the merge according to [Dev Process](#development-process) / #5. Add a blank line between the "Merge ..." message and your line items.
+1. With your Shopify partner account, create a [development](https://help.shopify.com/en/partners/building-stores-for-merchants/creating-a-development-store) sandbox store.
+2. Once you have a store, connect your Github fork with Shopify.
+3. Once you store is up and running, install [ExIm ‑ Export / Import data](https://apps.shopify.com/exim-export-import-pages-blogs-theme-settings) and [import](https://www.dropbox.com/sh/q8lzzlnive1vi5d/AAC8B8PIPWjZ1yN2rtQMItQIa?dl=0) the blog posts.
+4. Finally run a test deployment to the theme by updating your `package.json` with the correct store.
 
-## Versioning
-There should be a person designated to manage releases and versioning. If you're unsure who this is, ask :)
+## Workflow Details
 
-Follow SemVer versioning guidelines for `patch` `minor` and `major`. To version this theme, use the following commands.
+**Sample “Production Site”**
 
-#### patch
-For small fixes and additions:
-```bash
-npm version patch -m "{version} - released {mm/dd/yyyy} @ {mm:hh}am/pm
->
-> Add notes for release here."
-```
+- https://barrel-base.myshopify.com/
 
-#### minor 
-For new features, removals, or changes in API:
-```bash
-npm version minor -m "{version} - released {mm/dd/yyyy} @ {mm:hh}am/pm
->
-> Add notes for release here."
-```
+1. Commit your work locally
+2. Push to either a forked remote or to a new/empty repository of your own.
 
-#### major 
-This will be used rarely. **Check with the lead before using this!** 
+## The Test
 
-For large features, refactors, or removals:
-```bash
-npm version major -m "{version} - released {mm/dd/yyyy} @ {mm:hh}am/pm
->
-> Add notes for release here."
-```
+The test is this: get setup, read requirements, and then add the new features.
 
-**Important:** in all versioning cases, you must use the `--tags` flag to push them up to Gitlab.
-```bash
-git push origin master --tags
-```
+1. Setup: This issue includes the setup details.
+2. Specs: Read through issue [#3](https://github.com/barrel/barrel-shopify-test/issues/3) for the full designs.
+3. Code: Add these two (2) new features from issues [#1](https://github.com/barrel/barrel-shopify-test/issues/1) and [#2](https://github.com/barrel/barrel-shopify-test/issues/2).
+
+**Notes:** We do expect all applicants that aren't familiar with the tech stack and tools to take the time to understand them.
