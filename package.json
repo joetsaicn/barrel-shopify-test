@@ -8,9 +8,9 @@
   "scripts": {
     "start": "concurrently --prefix none npm:dev npm:serve",
     "dev": "vite dev",
-    "serve": "shopify theme dev --store=d7274b-6d",
+    "serve": "shopify theme dev --store=barrel-base",
     "build": "vite build",
-    "deploy": "npm run build && shopify theme push --store=d7274b-6d --nodelete --ignore \"locales\\/[^\\/]*\\.json\" --ignore \"config/settings_data.json\" --ignore \"templates\\/[^\\/]*\\.json\""
+    "deploy": "npm run build && shopify theme push --store=barrel-base --nodelete --ignore \"locales\\/[^\\/]*\\.json\" --ignore \"config/settings_data.json\" --ignore \"templates\\/[^\\/]*\\.json\""
   },
   "repository": {
     "type": "git",
