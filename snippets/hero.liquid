@@ -1,0 +1,36 @@
+<div class="hero wrapper">
+    {% capture srcset %}
+      {{ section.settings.bg_image | img_url: '320x600', crop: 'center' }} 320w,
+      {{ section.settings.bg_image | img_url: '600x800', crop: 'center' }} 600w,
+      {{ section.settings.bg_image | img_url: '1000x625', crop: 'center' }} 1000w,
+      {{ section.settings.bg_image | img_url: '1400x875', crop: 'center' }} 1400w
+    {% endcapture %}
+    <div class="hero__image-container ratio-container">
+      <i class="img__loader--alt"></i>
+      <img class="hero__image lazyload"
+        src="{{ section.settings.bg_image | img_url: '320x600', crop: 'center' }}"
+        srcset="{{ srcset }}"
+        sizes="auto"
+        alt="{{ section.settings.title }}">
+    </div>
+    <div class="hero-content wrapper">
+        <div class="hero-info">
+            <h1 class="hero-info-title">{{ section.settings.title }}</h1>
+            <div class="hero-info-text">{{ section.settings.text }}</div>
+        </div>
+        <div class="hero-foreground-img">
+            <div class="hero-content__image-container ratio-container">
+                {% capture srcset %}
+                    {{ section.settings.foreground_image | img_url: '320x320', crop: 'center' }} 320w,
+                    {{ section.settings.foreground_image | img_url: '600x600', crop: 'center' }} 600w
+                {% endcapture %}
+                <i class="img__loader--alt"></i>
+                <img class="hero__image lazyload"
+                    src="{{ section.settings.foreground_image | img_url: '600x600', crop: 'center' }}"
+                    srcset="{{ srcset }}"
+                    sizes="auto"
+                    alt="{{ section.settings.title }}">
+            </div>
+        </div>
+    </div>
+</div>
